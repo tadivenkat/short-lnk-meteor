@@ -7,6 +7,8 @@ import Link from '../ui/components/Link';
 import Login from '../ui/components/Login';
 import NotFound from '../ui/components/NotFound';
 import history from '../ui/components/history';
+import Profile from '../ui/components/Profile';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const authenticatedPages = ['/links'];
 const unAuthenticatedPages = ['/', '/signup'];
@@ -30,6 +32,7 @@ export const routes = (
       <Route exact path="/" component={Login}/>
       <Route path="/signup" component={Signup}/>
       <Route path="/links" component={Link}/>
+      <Route path="/profile" component={Profile}/>
       <Route path="*" component={NotFound}/>
     </Switch>
   </Router>

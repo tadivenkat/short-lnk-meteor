@@ -18,3 +18,13 @@ Accounts.validateNewUser((user) => {
   }
   return true;
 });
+
+Meteor.methods({
+    getLoggedInUserInfo() {
+      if (!this.userId) {
+        // The user is not logged-in
+        throw new Meteor.Error('not-authorized');
+      }
+      return Meteor.user();
+    }
+});

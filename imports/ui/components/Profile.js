@@ -9,10 +9,11 @@ export default class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: null,
-      firstName: null,
-      lastName: null,
-      email: null
+      error: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      dob: ''
     }
   }
 
@@ -26,7 +27,8 @@ export default class Profile extends React.Component {
           this.setState({
             firstName: resp.profile.firstName,
             lastName: resp.profile.lastName,
-            email: resp.emails[0].address
+            email: resp.emails[0].address,
+            dob: String(resp.profile.dob)
           });
         }
     });
@@ -43,6 +45,7 @@ export default class Profile extends React.Component {
             <ul className="list-group">
               <li className="list-group-item"><h4>{this.state.firstName}, {this.state.lastName}</h4></li>
               <li className="list-group-item"><h4>{this.state.email}</h4></li>
+              <li className="list-group-item"><h4>{this.state.dob}</h4></li>
             </ul>
           </div>
       </div>

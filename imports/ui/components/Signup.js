@@ -5,6 +5,8 @@ import Modal from 'react-modal';
 import Header from './Header';
 import classnames from 'classnames';
 import {validateEmail} from '../../utils/utils';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export default class Signup extends React.Component {
 
@@ -15,13 +17,14 @@ export default class Signup extends React.Component {
       email: '',
       password: '',
       firstName: '',
-      lastName: ''
+      lastName: '',
+      dob: new Date()
     }
   }
 
   onSubmit = (e) => {
     e.preventDefault();
-    const {email, password, firstName, lastName, errors} = this.state;
+    const {email, password, firstName, lastName, dob, errors} = this.state;
     if (email.trim() === '') {
       this.setState({errors: {email: 'Email can not be empty'}});
       return;
@@ -45,8 +48,8 @@ export default class Signup extends React.Component {
 
     const profile = {
       "firstName": firstName,
-      "lastName": lastName
-      // lastName can be retreived using this.refs.lastName.value.trim()
+      "lastName": lastName,
+      "dob": dob
     }
 
     if (password.length <= 8) {
@@ -68,6 +71,7 @@ export default class Signup extends React.Component {
             password: '',
             firstName: '',
             lastName: '',
+            dob: '',
             other: ''
           }
         });
@@ -92,6 +96,13 @@ export default class Signup extends React.Component {
         return;
     }
     this.setState({errors: {email: ''}});
+  }
+
+  onDOBSelect = (date) => {
+    this.setState({
+      dob: date
+    });
+    console.log(date);
   }
 
   render() {
@@ -152,7 +163,24 @@ export default class Signup extends React.Component {
                     placeholder="Enter your Last Name"
                     className={classnames('form-control form-control-lg', {'is-invalid': !!this.state.errors.lastName})}
                     onChange={this.onChange}/>
-                    <div className="invalid-feedback">{this.state.errors.lastName}</div>
+                  <div className="invalid-feedback">{this.state.errors.lastName}</div>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="dob">Date Of Birth</label>
+                  <DatePicker
+                    placeholderText="Select your date of birth"
+                    selected={this.state.dob}
+                    name="dob"
+                    ref="dob"
+                    className={classnames('form-control form-control-lg', {'is-invalid': !!this.state.errors.dob})}
+                    showMonthDropdown
+                    showYearDropdown
+                    dateFormat="dd/MM/yyyy"
+                    minDate={new Date(1900,0, 1)}
+                    maxDate={new Date()}
+                    dropdownMode="select"
+                    onSelect={this.onDOBSelect}/>
+                  <div className="invalid-feedback">{this.state.errors.lastName}</div>
                 </div>
                 <input type="submit" value="Create Account" className="btn btn-light btn-block"/>
               </form>

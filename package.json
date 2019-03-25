@@ -16,6 +16,7 @@
     "jquery": "^3.3.1",
     "meteor-node-stubs": "^0.4.1",
     "react": "^16.8.3",
+    "react-datepicker": "^2.2.0",
     "react-dom": "^16.8.3",
     "react-modal": "^3.8.1",
     "react-router-dom": "^4.3.1",

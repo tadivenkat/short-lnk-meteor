@@ -28,7 +28,12 @@ export default class Profile extends React.Component {
             firstName: resp.profile.firstName,
             lastName: resp.profile.lastName,
             email: resp.emails[0].address,
-            dob: String(resp.profile.dob)
+            dob: String(resp.profile.dob),
+            address: resp.profile.address,
+            city: resp.profile.city,
+            state: resp.profile.state,
+            pincode: resp.profile.pincode,
+            subscribeTextMessages: resp.profile.subscribeTextMessages
           });
         }
     });
@@ -46,6 +51,11 @@ export default class Profile extends React.Component {
               <li className="list-group-item"><h4>{this.state.firstName}, {this.state.lastName}</h4></li>
               <li className="list-group-item"><h4>{this.state.email}</h4></li>
               <li className="list-group-item"><h4>{this.state.dob}</h4></li>
+              <li className="list-group-item"><h4>{this.state.address}</h4></li>
+              <li className="list-group-item"><h4>{this.state.city}</h4></li>
+              <li className="list-group-item"><h4>{this.state.state}</h4></li>
+              <li className="list-group-item"><h4>{this.state.pincode}</h4></li>
+              <li className="list-group-item"><h4>subscribeTextMessages: {this.state.subscribeTextMessages ? "yes" : "no"}</h4></li>
             </ul>
           </div>
       </div>

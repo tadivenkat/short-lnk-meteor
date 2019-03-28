@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import {Tracker} from 'meteor/tracker';
 import {onAuthChange, routes} from '../imports/routes/routes';
 import {Session} from 'meteor/session';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 Session.set('name', 'Amma, Naanna');
 console.log(Session.get('name'));

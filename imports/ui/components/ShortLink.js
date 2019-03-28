@@ -1,10 +1,11 @@
 import React from 'react';
 import {createBrowserHistory} from 'history';
 import {Meteor} from 'meteor/meteor';
+import {Link} from 'react-router-dom';
 import history from './history';
 import {Links} from '../../api/links';
 
-export default class Link extends React.Component {
+export default class ShortLink extends React.Component {
 
   constructor(props) {
     super(props);
@@ -72,6 +73,7 @@ export default class Link extends React.Component {
         </form>
         <p>Links</p>
         {this.state.links.map((link) => <p key={link._id}>{link.url}</p>)}
+        <p><Link to="/profile">View your profile</Link></p>
       </div>
     );
   }

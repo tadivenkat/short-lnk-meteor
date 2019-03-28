@@ -3,12 +3,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Switch, Route} from 'react-router-dom';
 import Signup from '../ui/components/Signup';
-import Link from '../ui/components/Link';
+import ShortLink from '../ui/components/ShortLink';
 import Login from '../ui/components/Login';
 import NotFound from '../ui/components/NotFound';
 import history from '../ui/components/history';
 import Profile from '../ui/components/Profile';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const authenticatedPages = ['/links'];
 const unAuthenticatedPages = ['/', '/signup'];
@@ -31,7 +30,7 @@ export const routes = (
     <Switch>
       <Route exact path="/" component={Login}/>
       <Route path="/signup" component={Signup}/>
-      <Route path="/links" component={Link}/>
+      <Route path="/links" component={ShortLink}/>
       <Route path="/profile" component={Profile}/>
       <Route path="*" component={NotFound}/>
     </Switch>

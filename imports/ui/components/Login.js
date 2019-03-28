@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Meteor} from 'meteor/meteor';
 import history from './history';
+import Header from './Header';
 
 export default class Login extends React.Component {
 
@@ -33,7 +34,8 @@ export default class Login extends React.Component {
   render() {
     return (
       <div>
-        <h1>Login to Short Link</h1>
+        <Header/>
+        <h1 className="display-4">Login to Short Link</h1>
         {this.state.error ? <p>{this.state.error}</p> : null}
         <form onSubmit={this.onSubmit.bind(this)} noValidate>
           <input type="email" name="email" ref="email" placeholder="Email" />

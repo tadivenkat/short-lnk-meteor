@@ -142,7 +142,8 @@ export default class Signup extends React.Component {
   render() {
     return (
       <div>
-        <Header title="Short Lnk"/>
+        <Header/>
+        <h1 className="display-4">Signup for ShortLink</h1>
         <div className="container">
         <div className="card mb-3">
             <div className="card-header">

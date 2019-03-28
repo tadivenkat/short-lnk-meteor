@@ -44,7 +44,8 @@ export default class Profile extends React.Component {
 
     return (
       <div>
-          <Header title="Your Profile"/>
+          <Header/>
+          <h1 className="display-4">Your Profile</h1>
           {this.state.error ? <p>{this.state.error}</p> : null}
           <div className="card card-body mb-3">
             <ul className="list-group">

@@ -8,6 +8,7 @@ import Login from '../ui/components/Login';
 import NotFound from '../ui/components/NotFound';
 import history from '../ui/components/history';
 import Profile from '../ui/components/Profile';
+import About from '../ui/components/About';
 
 const authenticatedPages = ['/links'];
 const unAuthenticatedPages = ['/', '/signup'];
@@ -32,6 +33,7 @@ export const routes = (
       <Route path="/signup" component={Signup}/>
       <Route path="/links" component={ShortLink}/>
       <Route path="/profile" component={Profile}/>
+      <Route path="/about" component={About}/>
       <Route path="*" component={NotFound}/>
     </Switch>
   </Router>

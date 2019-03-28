@@ -4,6 +4,7 @@ import {Meteor} from 'meteor/meteor';
 import {Link} from 'react-router-dom';
 import history from './history';
 import {Links} from '../../api/links';
+import Header from './Header';
 
 export default class ShortLink extends React.Component {
 
@@ -65,7 +66,7 @@ export default class ShortLink extends React.Component {
   render() {
     return (
       <div>
-        <h1>Short Lnks</h1>
+        <Header/>
         {this.state.error ? <p>{this.state.error}</p> : null}
         <button onClick={this.onLogout.bind(this)}>Logout</button>
         <form onSubmit={this.onSubmit.bind(this)}>
